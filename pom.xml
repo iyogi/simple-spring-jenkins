@@ -49,8 +49,8 @@
 
 
 	<!--
-		used by the maven release plugin, -B = non-interactive
-		"mvn -B release:prepare release:perform -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
+		used by the maven release plugin, -B = non-interactive = batch mode. Also note the special way of passing system properties to the release plugin!
+		mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
 	-->
 	<scm>
 		<url>https://github.com/iyogi/simple-spring-jenkins</url>
