@@ -27,7 +27,9 @@
 `
 
 ### 3a. Now you can either use maven release plugin to release - prepare and perform - to artifactory (used normally for saving release version to artifactory)
-`mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"`
+`
+mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
+`
 
 OR
 ### 3b. Use maven deploy plugin to only save to artifactory (used normally for saving current snapshot version)
