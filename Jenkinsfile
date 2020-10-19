@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        //jdk 'jdk11'
-        jdk 'jdk8'
+        jdk 'jdk11'
+        //jdk 'jdk8'
         maven 'maven3'
     }
 
@@ -33,6 +33,12 @@ pipeline {
         stage('Sonar') {
             steps {
                 sh "mvn sonar:sonar -Dsonar.host.url=${env.SONARQUBE_HOST}"
+            }
+        }
+
+        stage('deploy') {
+            steps {
+                    sh "mvn deploy -DskipTests"
             }
         }
 
