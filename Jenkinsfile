@@ -18,6 +18,11 @@ pipeline {
                 sh "mvn -version"
                 sh "mvn clean test"
             }
+            post {
+                always {
+                    junit '**/target/*-reports/TEST-*.xml'
+                }
+            }
         }
     }
 }
