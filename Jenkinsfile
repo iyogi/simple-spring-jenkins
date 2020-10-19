@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+
         stage('Install') {
             steps {
                 sh "pwd"
@@ -21,10 +22,17 @@ pipeline {
             post {
                 always {
                     junit '**/target/*-reports/TEST-*.xml'
-                    cobertura coberturaReportFile: 'target/site/cobertura/coverage.xml'
+                    //cobertura coberturaReportFile: 'target/site/cobertura/coverage.xml'
                     //step([$class: 'CoberturaPublisher', coberturaReportFile: 'target/site/cobertura/coverage.xml'])
                 }
             }
         }
+
+        stage('Sonar') {
+            steps {
+                sh "mvn sonar:sonar -Dsonar.host.url=${env.SONARQUBE_HOST}"
+            }
+        }
+
     }
 }
