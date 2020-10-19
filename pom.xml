@@ -48,7 +48,10 @@
 	</dependencies>
 
 
-	<!-- used by the maven release plugin "mvn release:prepare release:perform"-->
+	<!--
+		used by the maven release plugin, -B = non-interactive
+		"mvn -B release:prepare release:perform -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
+	-->
 	<scm>
 		<url>https://github.com/iyogi/simple-spring-jenkins</url>
 		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
@@ -67,7 +70,7 @@
 
 			<servers>
     			<server>
-      			<id>artifactory-local</id>
+      			<id>artifactory-local</id>  // should match id in <distributionManagement> section below
       			<username>admin</username>
       			<password>${ARTIFACTORY_PWD}</password>
     			</server>
@@ -76,13 +79,20 @@
 		  # 3. save to local artifactory
 		  mvn deploy -DskipTests -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local
      -->
-	<!--  -->
 	<distributionManagement>
+
         <snapshotRepository>
-            <id>artifactory-local</id>
+            <id>artifactory-local</id> <!-- should match <server><id> section in settings.xml -->
             <name>artifactory</name>
             <url>${artifactory_url}</url>
-        </snapshotRepository>
+		</snapshotRepository>
+
+		<repository>
+			<id>artifactory-local</id>
+			<name>artifactory</name>
+			<url>${artifactory_url}</url>
+		  </repository>
+
 	</distributionManagement>
 
 
