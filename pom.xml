@@ -37,7 +37,15 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<repositories>
+		<repository>
+		   <id>Central Maven repository</id>
+		   <name>Central Maven repository https</name>
+		   <url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	 </repositories>
+	 
+	 <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
