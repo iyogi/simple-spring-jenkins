@@ -38,13 +38,13 @@
 
 		<!-- dependency for cobertura code coverage plugin to avoid error like: -->
 		<!-- Plugin org.codehaus.mojo:cobertura-maven-plugin:2.7 or one of its dependencies could not be resolved: Could not find artifact com.sun:tools:jar:0 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.sun</groupId>
 			<artifactId>tools</artifactId>
 			<version>1.6.0</version>
 			<scope>system</scope>
 			<systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
-		  </dependency>
+		  </dependency> -->
 
 	</dependencies>
 

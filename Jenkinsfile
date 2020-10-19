@@ -17,7 +17,8 @@ pipeline {
                 sh "which mvn"
                 sh "java -version"
                 sh "mvn -version"
-                sh "mvn -U clean test cobertura:cobertura -Dcobertura.report.format=xml"
+                //sh "mvn -U clean test cobertura:cobertura -Dcobertura.report.format=xml"
+                sh "mvn -U clean test"
             }
             post {
                 always {
