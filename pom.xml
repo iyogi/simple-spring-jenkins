@@ -48,21 +48,8 @@
 	</dependencies>
 
 
+
 	<!--
-		used by the maven release plugin, -B = non-interactive = batch mode. Also note the special way of passing system properties to the release plugin!
-		mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
-	-->
-	<scm>
-		<url>https://github.com/iyogi/simple-spring-jenkins</url>
-		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
-		<developerConnection>scm:git:git@github.com:iyogi/simple-spring-jenkins.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
-
-
-
-
-	   <!--
           # 1. run artifactort in docker (-rm is actially with two dashes, similarly -name is also with two dashes, but single dash given below sine two consecutive dashes is illegal in xml)
 		  docker run -rm -p 8081:8081 -name artifactory docker.bintray.io/jfrog/artifactory-oss:5.4.4
 
@@ -76,8 +63,33 @@
     			</server>
    			</servers>
 
-		  # 3. save to local artifactory
-		  mvn deploy -DskipTests -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local
+     -->
+
+	<!--
+		 3a. Now you can either use maven release plugin to release - prepare and perform - to artifactory (used normally for saving release version to artifactory)
+		 OR
+		 3b. Use maven deploy plugin to only save to artifactory (used normally for saving current snapshot version)
+	-->
+
+
+	<!--
+		# 3a use maven release plugin to release to artifactory (used normally for saving release version to artifactory)
+		# used by the maven release plugin, -B = non-interactive = batch mode. Also note the special way of passing system properties to the release plugin!
+		mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
+	-->
+	<scm>
+		<url>https://github.com/iyogi/simple-spring-jenkins</url>
+		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
+		<developerConnection>scm:git:git@github.com:iyogi/simple-spring-jenkins.git</developerConnection>
+	  <tag>HEAD</tag>
+  </scm>
+
+
+
+
+	<!--
+		# 3b. save current snapshot to local artifactory
+		mvn deploy -DskipTests -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local
      -->
 	<distributionManagement>
 
@@ -88,7 +100,7 @@
 		</snapshotRepository>
 
 		<repository>
-			<id>artifactory-local</id>
+			<id>artifactory-local</id>  <!-- should match <server><id> section in settings.xml -->
 			<name>artifactory</name>
 			<url>${artifactory_url}</url>
 		  </repository>
