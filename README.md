@@ -35,4 +35,4 @@ OR
 
 
 ## Jenkins integration
-### TODO
+### See ~/Workspaces/CI-CD/learning/dzone/docker_jenkins_notes.txt
