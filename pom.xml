@@ -81,8 +81,8 @@
 		<url>https://github.com/iyogi/simple-spring-jenkins</url>
 		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
 		<developerConnection>scm:git:git@github.com:iyogi/simple-spring-jenkins.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+	  	<tag>HEAD</tag>
+  	</scm>
 
 
 
