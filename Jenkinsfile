@@ -39,7 +39,10 @@ pipeline {
 
         stage('deploy') {
             steps {
-                    sh "mvn deploy -DskipTests"
+                    //sh "mvn deploy -DskipTests"
+                configFileProvider([configFile(fileId: 'custom_maven_settings', variable: 'SETTINGS')]) {
+                    sh "mvn -s $SETTINGS deploy -DskipTests -Dartifactory_url=${env.ARTIFACTORY_URL}"
+                }
             }
         }
 
