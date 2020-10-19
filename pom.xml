@@ -49,6 +49,32 @@
 	</dependencies>
 
 
+	   <!--
+          # 1. run artifactort in docker (-rm is actially with two dashes, similarly -name is also with two dashes, but single dash given below sine two consecutive dashes is illegal in xml)
+		  docker run -rm -p 8081:8081 -name artifactory docker.bintray.io/jfrog/artifactory-oss:5.4.4
+
+		  # 2. ensure that settings.xml has this entry, replacing ${ARTIFACTORY_PWD} with actual credential
+
+			<servers>
+    			<server>
+      			<id>artifactory-local</id>
+      			<username>admin</username>
+      			<password>${ARTIFACTORY_PWD}</password>
+    			</server>
+   			</servers>
+
+		  # 3. save to local artifactory
+		  mvn deploy -DskipTests -Dartifactory_url=http://localhost:8081/artifactory/example-repo-local
+     -->
+	<!--  -->
+	<distributionManagement>
+        <snapshotRepository>
+            <id>artifactory-local</id>
+            <name>artifactory</name>
+            <url>${artifactory_url}</url>
+        </snapshotRepository>
+	</distributionManagement>
+	
 	
 	<repositories>
 		<repository>
