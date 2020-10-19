@@ -49,6 +49,16 @@
 	</dependencies>
 
 
+	<!-- used by the maven release plugin "mvn release:prepare release:perform"-->
+	<scm>
+		<url>https://github.com/iyogi/simple-spring-jenkins</url>
+		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
+		<developerConnection>scm:git:git@github.com:iyogi/simple-spring-jenkins.git</developerConnection>
+	</scm>
+
+
+
+
 	   <!--
           # 1. run artifactort in docker (-rm is actially with two dashes, similarly -name is also with two dashes, but single dash given below sine two consecutive dashes is illegal in xml)
 		  docker run -rm -p 8081:8081 -name artifactory docker.bintray.io/jfrog/artifactory-oss:5.4.4
@@ -74,8 +84,12 @@
             <url>${artifactory_url}</url>
         </snapshotRepository>
 	</distributionManagement>
-	
-	
+
+
+
+
+
+
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -87,7 +101,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	 
+
 	<pluginRepositories>
         <pluginRepository>
             <id>central</id>
