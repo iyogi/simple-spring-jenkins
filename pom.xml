@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.yrs.spring</groupId>
 	<artifactId>simple-spring-jenkins</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.0.6</version>
 	<name>simple-spring-jenkins</name>
 	<description>Demo project for Spring Boot and Jenkins integration</description>
 
@@ -81,7 +81,7 @@
 		<url>https://github.com/iyogi/simple-spring-jenkins</url>
 		<connection>scm:git:git://github.com/iyogi/simple-spring-jenkins.git</connection>
 		<developerConnection>scm:git:git@github.com:iyogi/simple-spring-jenkins.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>simple-spring-jenkins-0.0.6</tag>
   </scm>
 
 
