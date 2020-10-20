@@ -47,4 +47,4 @@ mvn deploy -DskipTests -Dartifactory_url=http://localhost:8081/artifactory/examp
 
 
 ## Jenkins integration
-### See ~/Workspaces/CI-CD/learning/dzone/docker_jenkins_notes.txt
+### See ~/Workspaces/CI-CD/learning/x/docker_jenkins_notes.txt
