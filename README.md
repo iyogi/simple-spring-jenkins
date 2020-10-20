@@ -34,7 +34,11 @@ docker run --rm -p 8081:8081 --name artifactory docker.bintray.io/jfrog/artifact
 
 3a. Now you can either use maven release plugin to release - prepare and perform - to artifactory (used normally for saving release version to artifactory)
 ```
-mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"  
+mvn -B release:clean release:prepare release:perform "-Darguments=-Dartifactory_url=http://localhost:8081/artifactory/example-repo-local"
+```
+OR
+```
+mvn release:clean if something went wrong when releasing
 ```
 
 OR
