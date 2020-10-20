@@ -13,10 +13,10 @@
 
 ## Save artifact to local artifactory
 
-1. run artifactort in docker (-rm is actially with two dashes, similarly -name is also with two dashes, but single dash given below sine two consecutive dashes is illegal in xml)
+1. run artifactort in docker
 
 ```
-docker run -rm -p 8081:8081 -name artifactory docker.bintray.io/jfrog/artifactory-oss:5.4.4
+docker run --rm -p 8081:8081 --name artifactory docker.bintray.io/jfrog/artifactory-oss:5.4.4
 ```
 
 
